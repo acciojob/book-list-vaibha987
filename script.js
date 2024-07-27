@@ -31,7 +31,7 @@ let isb=document.getElementById("isbn").value
   row.remove();
 });
 
-  const bookList = document.querySelector('#book-list');
+  const bookList = document.querySelector('#book-list-body');
   bookList.appendChild(row);
 
   // Clear the input fields
