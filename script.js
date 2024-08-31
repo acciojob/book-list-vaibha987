@@ -1,41 +1,19 @@
-//your JS code here. If required.
-let form=document.querySelector(".form-group")
-form.addEventListener('submit', function(e) {
-e.preventDefault();	
-let titl=document.getElementById("title").value
-let autho=document.getElementById("author").value
-let isb=document.getElementById("isbn").value
-
-// Create a new row and cells for the new book
-  const row = document.createElement('tr');
-  const titleCell = document.createElement('td');
-  const authorCell = document.createElement('td');
-  const isbnCell = document.createElement('td');
- const deleteCell = document.createElement('td');
- const deleteButton = document.createElement('button');
-
- titleCell.textContent = titl;
-  authorCell.textContent = autho;
-  isbnCell.textContent = isb;
-  deleteButton.textContent = 'Delete';
- deleteCell.appendChild(deleteButton);
-
-  // Append the cells to the row
-  row.appendChild(titleCell);
-  row.appendChild(authorCell);
-  row.appendChild(isbnCell);
- row.appendChild(deleteCell);
-
-	deleteButton.addEventListener('click', function(e) {
-  e.preventDefault();
-  row.remove();
-});
-
-  const bookList = document.querySelector('#book-list-body');
-  bookList.appendChild(row);
-
-  // Clear the input fields
-  document.querySelector('#title').value = '';
-  document.querySelector('#author').value = '';
-  document.querySelector('#isbn').value = '';
-});	
+const title=document.getElementById("title")
+const author=document.getElementById("author")
+const isbn=document.getElementById("isbn")
+const table=document.getElementById("book-list-body")
+const button=document.getElementById("submit")
+button.addEventListener('click',(event)=>{
+event.preventDefault();
+const row=document.createElement("tr")
+const cell1=document.createElement("td")
+const cell2=document.createElement("td")
+const cell3=document.createElement("td")
+cell1.innerText=title.value
+cell2.innerText=author.value
+cell3.innerText=isbn.value
+row.appendChild(cell1)
+row.appendChild(cell2)
+row.appendChild(cell3)
+table.appendChild(row)
+})
