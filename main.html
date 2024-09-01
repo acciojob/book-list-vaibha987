@@ -1,38 +1,43 @@
 <!DOCTYPE html>
-
 <html>
-
+ 
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
+ 
 <body>
-	<!-- the entire body must be written by student -->
-    
-<h1>MyBookList</h1>
-	<form class="form-group">
-	<label>Title</label><br>
-		<input type="text" id="title"><br>
-		<label>Author</label><br>
-		<input type="text" id="author"><br>
-		<label>ISBN#</label><br>
-		<input type="text" id="isbn"><br>
-		<button id="submit">Add Book</button><br>
-	</form>
-	<table id="book-list" class="table table-striped">
-		<thead>
-		<tr>
-		<td>Title</td>
-		<td>Author</td>
-		<td>ISBN#</td>
-		</tr>
-		</thead>
-		<tbody id="book-list-body">
-			
-		</tbody>
-	</table>
-	<script type="text/javascript" src="./script.js">
-</script>
+    <div class="main-container">
+        <h1>MyBookList</h1>
+        <form class="form-group">
+            <label for="title">Title</label><br>
+            <input type="text" id="title"><br><br>
+ 
+            <label for="author">Author</label><br>
+            <input type="text" id="author"><br><br>
+ 
+            <label for="isbn">ISBN</label><br>
+            <input type="text" id="isbn"><br><br>
+ 
+            <button id="submit" type="button">Add Book</button>
+        </form>
+ 
+        <div class="table">
+            <table class="table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN#</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="book-list">
+                    <!-- Rows will be added  -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script.js"></script>
 </body>
-
+ 
 </html>

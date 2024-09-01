@@ -1,43 +1,40 @@
-
-// your code here
-//your JS code here. If required.
-let form=document.querySelector(".form-group")
-form.addEventListener('submit', function(e) {
-e.preventDefault();	
-let titl=document.getElementById("title").value
-let autho=document.getElementById("author").value
-let isb=document.getElementById("isbn").value
-
-// Create a new row and cells for the new book
-  const row = document.createElement('tr');
-  const titleCell = document.createElement('td');
-  const authorCell = document.createElement('td');
-  const isbnCell = document.createElement('td');
- const deleteCell = document.createElement('td');
- const deleteButton = document.createElement('button');
-
- titleCell.textContent = titl;
-  authorCell.textContent = autho;
-  isbnCell.textContent = isb;
-  deleteButton.textContent = 'Delete';
- deleteCell.appendChild(deleteButton);
-
-  // Append the cells to the row
-  row.appendChild(titleCell);
-  row.appendChild(authorCell);
-  row.appendChild(isbnCell);
- row.appendChild(deleteCell);
-
-	deleteButton.addEventListener('click', function(e) {
-  e.preventDefault();
-  row.remove();
+let titleInput = document.getElementById('title');
+let authorInput = document.getElementById('author');
+let isbnInput = document.getElementById('isbn');
+let submitButton = document.getElementById('submit');
+let table = document.getElementById('book-list'); // Targeting tbody with id 'book-list'
+ 
+submitButton.addEventListener('click', () => {
+    let titleValue = titleInput.value.trim();
+    let authorValue = authorInput.value.trim();
+    let isbnValue = isbnInput.value.trim();
+ 
+    if (titleValue && authorValue && isbnValue) {
+        let newRow = table.insertRow(); 
+ 
+        let titleCell = newRow.insertCell(0);
+        let authorCell = newRow.insertCell(1);
+        let isbnCell = newRow.insertCell(2);
+        let deleteCell = newRow.insertCell(3);
+ 
+        titleCell.innerText = titleValue;
+        authorCell.innerText = authorValue;
+        isbnCell.innerText = isbnValue;
+ 
+        // Create the delete button
+        let deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.className = 'delete'; 
+        deleteButton.addEventListener('click', () => {
+            table.deleteRow(newRow.rowIndex - 1);
+        });
+ 
+        deleteCell.appendChild(deleteButton);
+ 
+        titleInput.value = '';
+        authorInput.value = '';
+        isbnInput.value = '';
+    } else {
+        alert("Please fill in all fields");
+    }
 });
-
-  const bookList = document.querySelector('#book-list-body');
-  bookList.appendChild(row);
-
-  // Clear the input fields
-  document.querySelector('#title').value = '';
-  document.querySelector('#author').value = '';
-  document.querySelector('#isbn').value = '';
-});	
